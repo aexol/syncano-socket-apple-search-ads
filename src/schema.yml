@@ -68,6 +68,14 @@ AdGroupRet:
             type: string
         modificationTime:
           type: date-time
+AdGroupSelector:
+  $merge:
+    source:
+      $ref: '#/Selector'
+    with:
+      properties:
+        campaignId:
+          type: number
 Amount:
   title: Amount
   type: object
@@ -215,6 +223,13 @@ Condition:
       description: Field name
     values:
       type: array
+    operator:
+      enum:
+        - IN
+        - EQUALS
+        - GREATER
+        - LESS_THAN
+        - STARTSWITH
 Daypart:
   type: object
   properties:
@@ -300,10 +315,41 @@ NegativeKeywordRet:
           type: number
         delete:
           type: boolean
+OrderBy:
+  type: object
+  properties:
+    field:
+      type: string
+    sordOrder:
+      enum:
+        - ASCENDING
+        - DESCENDING
+Pagination:
+  type: object
+  properties:
+    offset:
+      type: number
+    limit:
+      type: number
+  required:
+    - offset
+    - limit
 Selector:
   type: object
   properties:
-
+    anyOf:
+      conditions:
+        type: array
+        item:
+          $ref: '#/Condtion'
+      fields:
+        type: array
+        item:
+          type: string
+      orderBy:
+        $ref: '#/OrderBy'
+      pagination:
+        $ref: '#/Pagination'
 Storefront:
   enum:
     - US

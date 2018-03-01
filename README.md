@@ -25,9 +25,11 @@ and then run `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`,
 ## Socket apple-search-ads REST Api
 * [POST: apple-search-ads/campaign](#apple-search-ads/campaign) - Update campaign.
 * [POST: apple-search-ads/campaigns](#apple-search-ads/campaigns) - Create campaign.
-* [GET/POSTapple-search-ads/auth](#apple-search-ads/auth) - Get SearchAds auth info.
+* [POST: apple-search-ads/find-campaign](#apple-search-ads/find-campaign) - Find campaigns.
+* [GET/POST apple-search-ads/auth](#apple-search-ads/auth) - Get SearchAds auth info.
 * [GET: apple-search-ads/campaign](#apple-search-ads/campaign) - Get campaign.
 * [GET: apple-search-ads/campaigns](#apple-search-ads/campaigns) - List campaigns.
+* [POST: apple-search-ads/find-campaign](#apple-search-ads/find-campaign) - Find campaigns.
 
 
 
@@ -62,6 +64,17 @@ Create new campaign. See [SearchAds API Campaign Object](https://developer.apple
 | adGroups | <code>Array</code> | New adGroups |
 | storefront | <code>enum</code> |  |
 
+#### <font style="background-color:dimgray; color:bisque" >POST</font> apple-search-ads/find-campaign<a name="apple-search-ads/find-campaign"></a>
+Find campaigns in org. See [SearchAds API Selector](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/API_Overview.html#//apple_ref/doc/uid/TP40017495-CH7-SW11) for more details
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| conditions | <code>Array</code> | Find conditions. Optional. |
+| fields | <code>array</code> | Limit returned fields. Optional. |
+| orderBy | <code>Object</code> | Sort results. |
+| pagination | <code>Object</code> | Results pagination. |
+
 #### <font style="background-color:dimgray; color:bisque" >GET/POST</font> apple-search-ads/auth<a name="apple-search-ads/auth"></a>
 If socket is configured to expose auth, this endpoint can be
 called with Account Key or from another socket to access SearchAds auth
@@ -77,4 +90,15 @@ Return details about campaign matching campaignId.
 
 #### <font style="background-color:dimgray; color:bisque" >GET</font> apple-search-ads/campaigns<a name="apple-search-ads/campaigns"></a>
 List all campaigns in this orgId.
+
+#### <font style="background-color:dimgray; color:bisque" >POST</font> apple-search-ads/find-campaign<a name="apple-search-ads/find-campaign"></a>
+Find campaigns in org. See [SearchAds API Selector](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/API_Overview.html#//apple_ref/doc/uid/TP40017495-CH7-SW11) for more details
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| conditions | <code>Array</code> | Find conditions. Optional. |
+| fields | <code>array</code> | Limit returned fields. Optional. |
+| orderBy | <code>Object</code> | Sort results. |
+| pagination | <code>Object</code> | Results pagination. |
 

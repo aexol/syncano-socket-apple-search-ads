@@ -40,11 +40,10 @@ export function campaignGet(api: Api, campaignId: any, args: any) {
  * 
  */
 export function campaignPost(api: Api, campaignId: any, args: any): any {
-  return response.success({})
-  //return api
-  //      .campaigns[campaignId]
-  //      .put(args)
-  //      .then((p: any) => response.success(p))
+  return api
+        .campaigns[campaignId]
+        .put(args)
+        .then((p: any) => response.success(p))
 }
 
 async function campaigns(ctx: Context,

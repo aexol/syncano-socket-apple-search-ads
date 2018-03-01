@@ -82,4 +82,32 @@ endpoints:
       badRequest:
         mimetype: application/json
         exit_code: 400
+  find-campaigns:
+    file: find_campaigns.js
+    description: Find campaign.
+    private: true
+    constraints:
+      $schema:
+        $ref: '../../$schema#/Selector'
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      badRequest:
+        mimetype: application/json
+        exit_code: 400
+  find-adgroups:
+    file: find_adgroups.js
+    description: Find adgroup.
+    private: true
+    constraints:
+      $schema:
+        $ref: '../../$schema#/AdGroupSelector'
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      badRequest:
+        mimetype: application/json
+        exit_code: 400
 $source: schema.yml
