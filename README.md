@@ -25,7 +25,9 @@ and then run `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`,
 ## Socket apple-search-ads REST Api
 * [POST: apple-search-ads/campaign](#apple-search-ads/campaign)
 * [GET: apple-search-ads/campaign](#apple-search-ads/campaign)
-<br>
+
+
+
 #### <font style="background-color:dimgray; color:bisque" >POST</font> apple-search-ads/campaign<a name="apple-search-ads/campaign"></a>
 
 | Param |
