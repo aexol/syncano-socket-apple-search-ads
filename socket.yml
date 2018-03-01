@@ -1,0 +1,85 @@
+name: apple-search-ads
+description: Description of apple-search-ads
+version: 0.0.1
+runtime: nodejs_v8
+config:
+  orgId:
+    type: number
+    example: 1
+    required: true
+  pem:
+    type: string
+    example: "pem"
+    required: true
+  key:
+    type: string
+    example: "key"
+    required: true
+  expose:
+    type: boolean
+    description: |
+      Expose auth info on private endpoint apple-search-ads/auth.
+      Can be useful for implementing custom functionality using
+      apple-search-ads. Drawback is that all endpoints will have
+      access to your searchads credentials.
+    required: false
+    example: false
+endpoints:
+  schema:
+    file: schema.js
+    description: Return endpoint defs.
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+  auth:
+    file: auth.js
+    description: Add new organization
+    private: true
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      forbidden:
+        mimetype: application/json
+        exit_code: 403
+  campaigns:
+    file: campaigns.js
+    description: Create campaign/Get campaigns
+    private: true
+    constraints:
+      get:
+      post:
+        $schema:
+          $ref: '../../$schema#/Campaign'
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      badRequest:
+        mimetype: application/json
+        exit_code: 400
+  campaign:
+    file: campaign.js
+    description: Update/Get campaign
+    private: true
+    constraints:
+      get:
+        $schema:
+          type: object
+          properties:
+            campaignId:
+              type: number
+          required:
+            - campaignId
+      post:
+        $schema:
+          $ref: '../../$schema#/CampaignPost'
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      badRequest:
+        mimetype: application/json
+        exit_code: 400
+$source: schema.yml

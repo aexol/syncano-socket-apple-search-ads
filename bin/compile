@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+mkdir -p .dist
+npx tsc -p deploy-tsconfig.json
+cp src/schema.yml .dist/src/schema.yml

@@ -1,0 +1,36 @@
+{
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.js",
+  "scripts": {
+    "build": "npm run build:src && npm run build:env",
+    "build:src": "sh ./bin/compile",
+    "build:env": "sh ./bin/compile-env",
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs .dist/src/*.js > README.md; echo"
+  },
+  "dependencies": {
+    "@aexol/searchads-js": "^0.1.6",
+    "@aexol/syncano-middleware": "^0.1.6",
+    "@aexol/syncano-middleware-common": "^0.2.1",
+    "@aexol/syncano-middleware-validate": "^0.1.5",
+    "@syncano/core": "^0.9.3",
+    "@types/form-data": "^2.2.1",
+    "form-data": "^2.3.2",
+    "js-yaml": "^3.10.0",
+    "lodash.get": "^4.4.2",
+    "node-fetch": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^3.10.1",
+    "@types/lodash.get": "^4.4.3",
+    "@types/node": "^9.4.6",
+    "@types/node-fetch": "^1.6.7",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jsdoc-to-markdown": "^4.0.1",
+    "rsync": "^0.6.1",
+    "ts-lint": "^4.5.1",
+    "ts-node": "^5.0.0",
+    "typescript": "^2.7.2"
+  }
+}

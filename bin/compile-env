@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+mkdir -p .dist
+cp package.json .dist
+node ./bin/sync-socket-deps.js
+cd .dist
+npm install --production
