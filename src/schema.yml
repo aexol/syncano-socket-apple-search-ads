@@ -207,6 +207,14 @@ CampaignRet:
           type: number
         orgId:
           type: number
+Condition:
+  type: object
+  properties:
+    field:
+      type: string
+      description: Field name
+    values:
+      type: array
 Daypart:
   type: object
   properties:
@@ -292,6 +300,10 @@ NegativeKeywordRet:
           type: number
         delete:
           type: boolean
+Selector:
+  type: object
+  properties:
+
 Storefront:
   enum:
     - US

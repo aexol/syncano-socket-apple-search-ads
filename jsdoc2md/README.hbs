@@ -25,13 +25,14 @@ and then run `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`,
 {{#modules}}
 ## Socket {{name}} REST Api
 {{#functions}}
-* [{{#if variation}}{{variation}}: {{/if}}{{name}}](#{{name}})
+* [{{#if variation}}{{variation}}: {{else}}GET/POST{{/if}}{{name}}](#{{name}}) - {{summary}}
 {{/functions}}
 {{/modules}}
 
 
 
 {{#functions}}
-####{{#if variation}} <font style="background-color:dimgray; color:bisque" >{{variation}}</font>{{/if}} {{name}}<a name="{{name}}"></a>
+#### <font style="background-color:dimgray; color:bisque" >{{#if variation}}{{variation}}{{else}}GET/POST{{/if}}</font> {{name}}<a name="{{name}}"></a>
+{{>description}}
 {{>params}}
 {{/functions}}
