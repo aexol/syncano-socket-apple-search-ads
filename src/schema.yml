@@ -314,7 +314,7 @@ NegativeKeyword:
 NegativeKeywordRet:
   $merge:
     source:
-      $ref: '#/NegativeKeywords'
+      $ref: '#/NegativeKeyword'
     with:
       properties:
         id:
@@ -383,7 +383,7 @@ TargetedKeyword:
 TargetedKeywordRet:
   $merge:
     source:
-      $ref: '#/TargetedKeywords'
+      $ref: '#/TargetedKeyword'
     with:
       properties:
         id:

@@ -154,8 +154,8 @@ endpoints:
             type: number
         required:
           - campaignId
-      post:
-        $ref: '../#/CampaignPost'
+      POST:
+        $ref: '../main#/CampaignUpdate'
     response:
       success:
         mimetype: application/json
@@ -168,7 +168,7 @@ endpoints:
     description: Find campaign.
     private: true
     inputs:
-      $ref: '../#/Selector'
+      $ref: '../main#/Selector'
     response:
       success:
         mimetype: application/json
