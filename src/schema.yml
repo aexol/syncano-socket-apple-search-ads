@@ -37,7 +37,7 @@ AdGroup:
         $ref: '#/NegativeKeyword'
     automatedKeywordsOptIn:
       type: boolean
-    targetingDimenstions:
+    targetingDimensions:
       $ref: '#/TargetingDimensions'
     status:
       enum:
@@ -76,6 +76,8 @@ AdGroupSelector:
       properties:
         campaignId:
           type: number
+  required:
+    - campaignId
 Amount:
   title: Amount
   type: object
@@ -230,6 +232,10 @@ Condition:
         - GREATER
         - LESS_THAN
         - STARTSWITH
+  required:
+    - field
+    - values
+    - operator
 Daypart:
   type: object
   properties:
@@ -337,19 +343,18 @@ Pagination:
 Selector:
   type: object
   properties:
-    anyOf:
-      conditions:
-        type: array
-        item:
-          $ref: '#/Condtion'
-      fields:
-        type: array
-        item:
-          type: string
-      orderBy:
-        $ref: '#/OrderBy'
-      pagination:
-        $ref: '#/Pagination'
+    conditions:
+      type: array
+      items:
+        $ref: '#/Condition'
+    fields:
+      type: array
+      items:
+        type: string
+    orderBy:
+      $ref: '#/OrderBy'
+    pagination:
+      $ref: '#/Pagination'
 Storefront:
   enum:
     - US

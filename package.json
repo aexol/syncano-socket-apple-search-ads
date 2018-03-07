@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@aexol/searchads-js": "^0.1.6",
-    "@aexol/syncano-middleware": "^0.1.6",
+    "@aexol/syncano-middleware": "^0.1.7",
     "@aexol/syncano-middleware-common": "^0.2.1",
-    "@aexol/syncano-middleware-validate": "^0.1.5",
+    "@aexol/syncano-middleware-validate": "^0.2.0",
     "@syncano/core": "^0.9.3",
     "@types/form-data": "^2.2.1",
     "form-data": "^2.3.2",

@@ -25,7 +25,8 @@ async function findCampaigns(ctx: Context, syncano: Server) {
         .post(ctx.args)
         .then((r: any) => response.success(r))
 }
-export default (ctx: Context) => serve(ctx,
+export default (ctx: Context) =>  
+serve(ctx,
   validate(
     findCampaigns
   )

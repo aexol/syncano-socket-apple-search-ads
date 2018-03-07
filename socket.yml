@@ -4,10 +4,14 @@ version: 0.0.1
 runtime: nodejs_v8
 config:
   orgId:
+    description: orgId that you wish to manage, get from SearchAds WebUI
     type: number
     example: 1
     required: true
   pem:
+    description: |
+      PEM certificate from SearchAds Web UI.
+      Can be set later on with ``
     type: string
     example: "pem"
     required: true
@@ -32,6 +36,86 @@ endpoints:
       success:
         mimetype: application/json
         exit_code: 200
+  adgroup:
+    file: adgroup.js
+    description: Adgroup endpoint.
+    private: true
+    inputs:
+      GET:
+        type: object
+        properties:
+          campaignId:
+            type: number
+          adgroupId:
+            type: number
+        required:
+          - campaignId
+          - adgroupId
+        additionalProperties: false
+      POST:
+        $merge:
+          source:
+            $merge:
+              source:
+                $ref: '../main#/AdGroup'
+              with:
+                properties:
+                  adgroupId:
+                    type: number
+                required:
+                  - campaignId
+                  - adgroupId
+                  - name
+                  - defaultCpcBid
+                  - startTime
+                additionalProperties: false
+          with:
+            not:
+              anyOf:
+                - required:
+                  - cpaGoal
+                - required:
+                  - storefronts
+                - required:
+                  - endTime
+                - required:
+                  - keywords
+                - required:
+                  - negativeKeywords
+                - required:
+                  - deleted
+                - required:
+                  - status
+                - required:
+                  - servingStatus
+                - required:
+                  - modificationTime
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      forbidden:
+        mimetype: application/json
+        exit_code: 403
+  adgroups:
+    file: adgroups.js
+    description: Adgroups endpoint.
+    private: true
+    inputs:
+      GET:
+        type: object
+        properties:
+          campaignId:
+            type: number
+        required:
+          - campaignId
+    response:
+      success:
+        mimetype: application/json
+        exit_code: 200
+      forbidden:
+        mimetype: application/json
+        exit_code: 403
   auth:
     file: auth.js
     description: Add new organization
@@ -47,11 +131,10 @@ endpoints:
     file: campaigns.js
     description: Create campaign/Get campaigns
     private: true
-    constraints:
-      get:
-      post:
-        $schema:
-          $ref: '../../$schema#/Campaign'
+    inputs:
+      GET:
+      POST:
+        $ref: '../main#/Campaign'
     response:
       success:
         mimetype: application/json
@@ -63,18 +146,16 @@ endpoints:
     file: campaign.js
     description: Update/Get campaign
     private: true
-    constraints:
-      get:
-        $schema:
-          type: object
-          properties:
-            campaignId:
-              type: number
-          required:
-            - campaignId
+    inputs:
+      GET:
+        type: object
+        properties:
+          campaignId:
+            type: number
+        required:
+          - campaignId
       post:
-        $schema:
-          $ref: '../../$schema#/CampaignPost'
+        $ref: '../#/CampaignPost'
     response:
       success:
         mimetype: application/json
@@ -86,9 +167,8 @@ endpoints:
     file: find_campaigns.js
     description: Find campaign.
     private: true
-    constraints:
-      $schema:
-        $ref: '../../$schema#/Selector'
+    inputs:
+      $ref: '../#/Selector'
     response:
       success:
         mimetype: application/json
@@ -100,9 +180,8 @@ endpoints:
     file: find_adgroups.js
     description: Find adgroup.
     private: true
-    constraints:
-      $schema:
-        $ref: '../../$schema#/AdGroupSelector'
+    inputs:
+      $ref: '../main#/AdGroupSelector'
     response:
       success:
         mimetype: application/json
@@ -110,4 +189,5 @@ endpoints:
       badRequest:
         mimetype: application/json
         exit_code: 400
-$source: schema.yml
+schemas:
+  main: schema.yml

@@ -1,5 +1,5 @@
 import serve, { HandlerReturn, response } from '@aexol/syncano-middleware';
-import validate, { validators, ValidationResult, validateByEndpointName } from '@aexol/syncano-middleware-validate';
+import validate from '@aexol/syncano-middleware-validate';
 import Server, { Context, RequestArgs } from '@syncano/core';
 import get from 'lodash.get';
 import { newApi } from './utils';
@@ -14,11 +14,6 @@ interface OrgAuthInfo {
   orgId: number;
   pem: string;
   key: string;
-}
-export async function validateCampaigns(
-  ctx: Context,
-  args: RequestArgs): Promise<ValidationResult> {
-  return validateByEndpointName(args, ctx, 'apple-search-ads/campaigns')
 }
 
 /**
