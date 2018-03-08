@@ -6,7 +6,7 @@
     "build": "npm run build:src && npm run build:env",
     "build:src": "sh ./bin/compile",
     "build:env": "sh ./bin/compile-env",
-    "docs": "jsdoc2md -t jsdoc2md/README.hbs .dist/src/*.js > README.md; echo"
+    "docs": "socket2md -t socket2md/main.hbs --helper socket2md/removeNotAnyOfRequired.js > README.md; echo"
   },
   "dependencies": {
     "@aexol/searchads-js": "^0.1.6",
@@ -21,13 +21,13 @@
     "node-fetch": "^2.0.0"
   },
   "devDependencies": {
+    "@aexol/socket-to-markdown": "^0.1.3",
     "@types/js-yaml": "^3.10.1",
     "@types/lodash.get": "^4.4.3",
     "@types/node": "^9.4.6",
     "@types/node-fetch": "^1.6.7",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "jsdoc-to-markdown": "^4.0.1",
     "rsync": "^0.6.1",
     "ts-lint": "^4.5.1",
     "ts-node": "^5.0.0",
