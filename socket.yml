@@ -20,7 +20,7 @@ config:
   pem:
     description: |
       PEM certificate from SearchAds Web UI.
-          Can be set later on with `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`
+      Can be set later on with `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`
     type: string
     example: pem
     required: true
@@ -29,15 +29,15 @@ config:
     example: key
     description: |
       Certificate key
-          Can be set later on with `$ npx s config-set apple-search-ads key -- "$(cat cert.key)"`
+      Can be set later on with `$ npx s config-set apple-search-ads key -- "$(cat cert.key)"`
     required: true
   expose:
     type: boolean
     description: |
       Expose auth info on private endpoint apple-search-ads/auth.
-          Can be useful for implementing custom functionality using
-          apple-search-ads. Drawback is that all endpoints will have
-          access to your searchads credentials.
+      Can be useful for implementing custom functionality using
+      apple-search-ads. Drawback is that all endpoints will have
+      access to your searchads credentials.
     required: false
     example: false
 endpoints:
@@ -108,7 +108,8 @@ endpoints:
         exit_code: 403
   adgroups:
     file: adgroups.js
-    description: Adgroups endpoint. Check out [Apple SearchAds API Adgroup Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW5) for more information.
+    description: |
+      Adgroups endpoint. Check out [Apple SearchAds API Adgroup Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW5) for more information.
     private: true
     inputs:
       GET:
@@ -150,7 +151,8 @@ endpoints:
         exit_code: 403
   campaigns:
     file: campaigns.js
-    description: Create campaign/Get campaigns. Check out [Apple SearchAds API Campaign Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW2) for more information.
+    description: |
+      Create campaign/Get campaigns. Check out [Apple SearchAds API Campaign Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW2) for more information.
     private: true
     inputs:
       GET:

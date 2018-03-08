@@ -34,26 +34,26 @@ $ npx s add apple-search-ads
 
 * orgId<a name="#_config-orgId"></a>
 
-    orgId that you wish to manage, get from SearchAds WebUI
+orgId that you wish to manage, get from SearchAds WebUI
 
 * pem<a name="#_config-pem"></a>
 
-    PEM certificate from SearchAds Web UI.
-    Can be set later on with `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`
+PEM certificate from SearchAds Web UI.
+Can be set later on with `$ npx s config-set apple-search-ads pem -- "$(cat cert.pem)"`
 
 
 * key<a name="#_config-key"></a>
 
-    Certificate key
-    Can be set later on with `$ npx s config-set apple-search-ads key -- "$(cat cert.key)"`
+Certificate key
+Can be set later on with `$ npx s config-set apple-search-ads key -- "$(cat cert.key)"`
 
 
 * expose<a name="#_config-expose"></a>
 
-    Expose auth info on private endpoint apple-search-ads/auth.
-    Can be useful for implementing custom functionality using
-    apple-search-ads. Drawback is that all endpoints will have
-    access to your searchads credentials.
+Expose auth info on private endpoint apple-search-ads/auth.
+Can be useful for implementing custom functionality using
+apple-search-ads. Drawback is that all endpoints will have
+access to your searchads credentials.
 
 
 
@@ -71,14 +71,14 @@ $ npx s add apple-search-ads
 
 #### schema<a name="_endpoints-schema"></a>
 
-     Return socket schemas.
-     
+Return socket schemas.
+
 
 
 #### adgroup <span style="color:gray">*PRIVATE*</span><a name="_endpoints-adgroup"></a>
 
-     Adgroup endpoint. Check out [Apple SearchAds API Adgroup Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW5) for more information.
-     
+Adgroup endpoint. Check out [Apple SearchAds API Adgroup Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW5) for more information.
+
 
 ###### GET
 <table>
@@ -371,19 +371,19 @@ $ npx s add apple-search-ads
 
 * campaignId
 
-    Returned when creating add group.
+Returned when creating add group.
 
 * name
 
-    Unique within campaign
+Unique within campaign
 
 * defaultCpcBid
 
-    Default const per click bid.
+Default const per click bid.
 
 * startTime
 
-    Start date for the ad group. Can't be 24 hours earlier than current time.
+Start date for the ad group. Can't be 24 hours earlier than current time.
 
 * automatedKeywordsOptIn
 * targetingDimensions
@@ -392,12 +392,13 @@ $ npx s add apple-search-ads
 
 #### adgroups <span style="color:gray">*PRIVATE*</span><a name="_endpoints-adgroups"></a>
 
-     Adgroups endpoint. Check out [Apple SearchAds API Adgroup Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW5) for more information.
-     
+Adgroups endpoint. Check out [Apple SearchAds API Adgroup Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW5) for more information.
+
+
 
 ###### GET
 
-     List adgroups
+List adgroups
 
 <table>
   <tr>
@@ -418,7 +419,7 @@ $ npx s add apple-search-ads
 
 ###### POST
 
-     Create new adgroup
+Create new adgroup
 
 <table>
   <tr>
@@ -832,28 +833,28 @@ $ npx s add apple-search-ads
 
 * campaignId
 
-    Returned when creating add group.
+Returned when creating add group.
 
 * name
 
-    Unique within campaign
+Unique within campaign
 
 * defaultCpcBid
 
-    Default const per click bid.
+Default const per click bid.
 
 * cpaGoal
 
-    optional cost per click bid.
+optional cost per click bid.
 
 * storefronts
 * startTime
 
-    Start date for the ad group. Can't be 24 hours earlier than current time.
+Start date for the ad group. Can't be 24 hours earlier than current time.
 
 * endTime
 
-    End date for the ad group.
+End date for the ad group.
 
 * keywords
 * negativeKeywords
@@ -864,23 +865,24 @@ $ npx s add apple-search-ads
 
 #### auth <span style="color:gray">*PRIVATE*</span><a name="_endpoints-auth"></a>
 
-     If config.expose is set to true, return auth data.
+If config.expose is set to true, return auth data.
 ```javascript
 import Syncano from '@syncano/core'
 export default ctx => new Syncnao(ctx).endpoints.get('apple-search-ads/auth')
 ```
 
-     
+
 
 
 #### campaigns <span style="color:gray">*PRIVATE*</span><a name="_endpoints-campaigns"></a>
 
-     Create campaign/Get campaigns. Check out [Apple SearchAds API Campaign Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW2) for more information.
-     
+Create campaign/Get campaigns. Check out [Apple SearchAds API Campaign Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW2) for more information.
+
+
 
 ###### GET
 
-     Get campaigns.
+Get campaigns.
 
 
 
@@ -888,7 +890,7 @@ export default ctx => new Syncnao(ctx).endpoints.get('apple-search-ads/auth')
 
 ###### POST
 
-     Create new campaign
+Create new campaign
 
 <table>
   <tr>
@@ -1431,40 +1433,40 @@ export default ctx => new Syncnao(ctx).endpoints.get('apple-search-ads/auth')
 
 * name
 
-    unique name within org
+unique name within org
 
 * budgetAmount
 
-    Once set can only be increased.
+Once set can only be increased.
 
 * dailyBudgetAmount
 
-    Daily cap
+Daily cap
 
 * adamId
 
-    Adam ID of promoted app.
+Adam ID of promoted app.
 
 * status
 
-    Whether runs or not.
+Whether runs or not.
 
 * negativeKeywords
 * adGroups
 * storefront
 
-    The app store territory in which you want to promote your app.
+The app store territory in which you want to promote your app.
 
 
 
 #### campaign <span style="color:gray">*PRIVATE*</span><a name="_endpoints-campaign"></a>
 
-     Update/Get campaign. Check out [Apple SearchAds API Campaign Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW2) for more information.
-     
+Update/Get campaign. Check out [Apple SearchAds API Campaign Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/Campaign_Resources.html#//apple_ref/doc/uid/TP40017495-CH14-SW2) for more information.
+
 
 ###### GET
 
-     Get campaign by id
+Get campaign by id
 
 <table>
   <tr>
@@ -1485,7 +1487,7 @@ export default ctx => new Syncnao(ctx).endpoints.get('apple-search-ads/auth')
 
 ###### POST
 
-     Update campaign
+Update campaign
 
 <table>
   <tr>
@@ -2034,37 +2036,37 @@ export default ctx => new Syncnao(ctx).endpoints.get('apple-search-ads/auth')
 
 * name
 
-    unique name within org
+unique name within org
 
 * budgetAmount
 
-    Once set can only be increased.
+Once set can only be increased.
 
 * dailyBudgetAmount
 
-    Daily cap
+Daily cap
 
 * adamId
 
-    Adam ID of promoted app.
+Adam ID of promoted app.
 
 * status
 
-    Whether runs or not.
+Whether runs or not.
 
 * negativeKeywords
 * adGroups
 * storefront
 
-    The app store territory in which you want to promote your app.
+The app store territory in which you want to promote your app.
 
 * campaignId
 
 
 #### find-campaigns <span style="color:gray">*PRIVATE*</span><a name="_endpoints-find-campaigns"></a>
 
-     Find campaigns matching query. Check out [Apple SearchAds API Selector Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/API_Overview.html#//apple_ref/doc/uid/TP40017495-CH7-SW11) for more information.
-     
+Find campaigns matching query. Check out [Apple SearchAds API Selector Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/API_Overview.html#//apple_ref/doc/uid/TP40017495-CH7-SW11) for more information.
+
 
 ###### GET POST
 <table>
@@ -2185,8 +2187,8 @@ export default ctx => new Syncnao(ctx).endpoints.get('apple-search-ads/auth')
 
 #### find-adgroups <span style="color:gray">*PRIVATE*</span><a name="_endpoints-find-adgroups"></a>
 
-     Find adgroups matching query. Check out [Apple SearchAds API Selector Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/API_Overview.html#//apple_ref/doc/uid/TP40017495-CH7-SW11) for more information.
-     
+Find adgroups matching query. Check out [Apple SearchAds API Selector Object](https://developer.apple.com/library/content/documentation/General/Conceptual/AppStoreSearchAdsAPIReference/API_Overview.html#//apple_ref/doc/uid/TP40017495-CH7-SW11) for more information.
+
 
 ###### GET POST
 <table>
