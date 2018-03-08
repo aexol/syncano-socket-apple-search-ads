@@ -1,10 +1,10 @@
 name: apple-search-ads
 description: Description of apple-search-ads
-version: 0.0.1
+version: 0.0.2
 runtime: nodejs_v8
 config:
   orgId:
-    description: orgId that you wish to manage, get from SearchAds WebUI
+    description: 'orgId that you wish to manage, get from SearchAds WebUI'
     type: number
     example: 1
     required: true
@@ -13,11 +13,11 @@ config:
       PEM certificate from SearchAds Web UI.
       Can be set later on with ``
     type: string
-    example: "pem"
+    example: pem
     required: true
   key:
     type: string
-    example: "key"
+    example: key
     required: true
   expose:
     type: boolean
@@ -57,7 +57,7 @@ endpoints:
           source:
             $merge:
               source:
-                $ref: '../main#/AdGroup'
+                $ref: 'main#/AdGroup'
               with:
                 properties:
                   adgroupId:
@@ -73,23 +73,23 @@ endpoints:
             not:
               anyOf:
                 - required:
-                  - cpaGoal
+                    - cpaGoal
                 - required:
-                  - storefronts
+                    - storefronts
                 - required:
-                  - endTime
+                    - endTime
                 - required:
-                  - keywords
+                    - keywords
                 - required:
-                  - negativeKeywords
+                    - negativeKeywords
                 - required:
-                  - deleted
+                    - deleted
                 - required:
-                  - status
+                    - status
                 - required:
-                  - servingStatus
+                    - servingStatus
                 - required:
-                  - modificationTime
+                    - modificationTime
     response:
       success:
         mimetype: application/json
@@ -132,9 +132,9 @@ endpoints:
     description: Create campaign/Get campaigns
     private: true
     inputs:
-      GET:
+      GET: null
       POST:
-        $ref: '../main#/Campaign'
+        $ref: 'main#/Campaign'
     response:
       success:
         mimetype: application/json
@@ -155,7 +155,7 @@ endpoints:
         required:
           - campaignId
       POST:
-        $ref: '../main#/CampaignUpdate'
+        $ref: 'main#/CampaignUpdate'
     response:
       success:
         mimetype: application/json
@@ -168,7 +168,7 @@ endpoints:
     description: Find campaign.
     private: true
     inputs:
-      $ref: '../main#/Selector'
+      $ref: 'main#/Selector'
     response:
       success:
         mimetype: application/json
@@ -181,7 +181,7 @@ endpoints:
     description: Find adgroup.
     private: true
     inputs:
-      $ref: '../main#/AdGroupSelector'
+      $ref: 'main#/AdGroupSelector'
     response:
       success:
         mimetype: application/json

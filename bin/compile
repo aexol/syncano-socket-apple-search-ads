@@ -3,3 +3,4 @@
 mkdir -p .dist
 npx tsc -p deploy-tsconfig.json
 cp src/schema.yml .dist/src/schema.yml
+cp socket.yml .dist/src/_socket.yml
